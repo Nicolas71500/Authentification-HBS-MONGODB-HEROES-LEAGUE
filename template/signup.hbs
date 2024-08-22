@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="/signup.css" />
+    <script src="/signup.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <h2>Inscription</h2>
+      <form action="/signup" method="POST">
+        <input
+          type="text"
+          name="name"
+          placeholder="Nom ( entre 3 et 20 caractères )"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Mot de passe ( 8 caractères minimum )"
+          required
+        />
+        <button type="submit">Envoyer</button>
+        <a href="/">retour à la page de Connexion</a>
+      </form>
+
+    </div>
+
+  </body>
+</html>
