@@ -30,6 +30,7 @@ const User = mongoose.model("User", userSchema);
 const templatePath = path.join(__dirname, "../template");
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../images")));
+
 app.use(express.json());
 app.set("view engine", "hbs");
 app.set("views", templatePath);
@@ -156,17 +157,16 @@ app.get("/home", isAuthenticated, (req, res) => {
   res.render("home");
 });
 
-app.post("/logout", (req, res) => {
+app.get("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res.status(500).send("Erreur lors de la déconnexion");
     }
-    res.clearCookie("connect.sid"); // Supprime le cookie de session
+    res.clearCookie("connect.sid"); 
     res.redirect("/");
   });
 });
 
-// Démarrage du serveur
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
